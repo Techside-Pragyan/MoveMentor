@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveMentor | AI Virtual Gym Trainer</title>
+    <meta name="description" content="AI-powered virtual fitness coach tracking your workout form in real-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span></span> MOVEMETOR
+        </div>
+        <div class="badge">
+            <div id="connection-status" style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></div>
+            AI CORE ACTIVE
+        </div>
+    </header>
+
+    <main>
+        <section class="visualizer-container">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="output-canvas"></canvas>
+            
+            <div class="hud-overlay">
+                <div class="badge">
+                    <span id="current-ex-display">Select Exercise</span>
+                </div>
+                <div class="badge timer" id="workout-timer">
+                    00:00
+                </div>
+            </div>
+
+            <div class="feedback-container">
+                <h1 id="feedback-text">PERFECT!</h1>
+            </div>
+        </section>
+
+        <aside class="dashboard">
+            <div class="card">
+                <div class="stat-group">
+                    <span class="stat-label">REPETITIONS</span>
+                    <span class="stat-value" id="rep-count">0</span>
+                    <div class="progress-bar">
+                        <div id="reps-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="stat-group">
+                    <span class="stat-label">CALORIES BURNED</span>
+                    <span class="stat-value" id="calorie-count">0.0</span>
+                    <span class="stat-label" style="font-size: 0.6rem; margin-top: 5px;">ESTIMATED ACTIVE KCAL</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-dim);">WORKOUT PLAN</h3>
+                <div class="exercise-selector" id="exercise-list">
+                    <button class="exercise-btn active" data-exercise="bicep_curls">
+                        Bicep Curls <span>💪</span>
+                    </button>
+                    <button class="exercise-btn" data-exercise="squats">
+                        Squats <span>🏋️‍♂️</span>
+                    </button>
+                    <button class="exercise-btn" data-exercise="pushups">
+                        Pushups <span>🤸</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" style="flex: 1;">
+                <h3 style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-dim);">TIPS & FORM</h3>
+                <p id="instruction-text" style="font-size: 0.875rem; color: var(--text-dim); line-height: 1.5;">
+                    Select an exercise and stand in view of the camera. Maintain good posture for accurate tracking.
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
